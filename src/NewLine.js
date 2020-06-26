@@ -4,5 +4,5 @@
  * @param {Number} lineLength
  */
 module.exports = function (inputStr, lineLength = 40, flexible = true) {
-	return inputStr.replace(new RegExp(`(.{1,${lineLength}})${flexible ? '\\s' : ''}`, 'g'), '$1\n')
+	return inputStr.replace(new RegExp(`(.{1,${lineLength}})(\\s${flexible ? '+' : '*'}|$)`, 'g'), '$1\n').trim()
 }
